@@ -5,7 +5,7 @@
 This app is a devemopment of the original [DashNotes](https://github.com/jeremierostan/DashNotes). In addition to transcribing and summarizing voice recordings, this version generates comprehension questions to aid and check for understanding.
 
 ## Question Generation
-The generation of questions is handled by [mrm8488/t5-base-finetuned-question-generation-ap](https://huggingface.co/mrm8488/t5-base-finetuned-question-generation-ap), a Google T5-based model fine-tuned for question generation by Manuel Romero on the Stanford Question Answering Dataset (SQuAD). After transcription through openai-whisper, facebook/bart-large-cnn provides a bullet point summary, which is used as the "context" of the question-generation prompt, while the "answer" is extracted with spaCy through a simple part-of-speech tagging task of the first noun chunk. 
+The generation of questions is handled by [mrm8488/t5-base-finetuned-question-generation-ap](https://huggingface.co/mrm8488/t5-base-finetuned-question-generation-ap), a Google T5-based model fine-tuned for question generation by Manuel Romero on the [Stanford Question Answering Dataset (SQuAD)](https://rajpurkar.github.io/SQuAD-explorer/). After transcription through openai-whisper, [facebook/bart-large-cnn](https://huggingface.co/facebook/bart-large-cnn) provides a bullet point summary, which is used as the "context" of the question-generation prompt, while the "answer" is extracted with spaCy through a simple part-of-speech tagging task of the first noun chunk. 
 
 ## Limitation
 The process described above comes with many limitations, including:
