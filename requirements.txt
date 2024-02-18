@@ -1,6 +1,7 @@
 streamlit
-transformers 
+transformers
 openai-whisper
 spacy
+spacy-huggingface-hub
 pydantic
 sentencepiece
