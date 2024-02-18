@@ -12,7 +12,7 @@ The process described above comes with many limitations, including:
 - Potential transcription errors (less likely)
 - Potential summarization errors (somewhat likely)
 - Potentially irrelevant questions (more likely)
-This all highlights the fact that, just like the original app, Dash Study Notes is an experimental proof-of-concept. By design, it is limited to open-source and no-cost resources. Similar functionalities and fasterm better performance can be obtained (quite easily) with paid options. 
+This all highlights the fact that, just like the original app, Dash Study Notes is an experimental proof-of-concept. By design, it is limited to open-source and no-cost resources. Similar functionalities and faster better performance can be obtained (quite easily) with paid options. 
 
 ## Installation
 To run the app:
@@ -34,7 +34,7 @@ python -m spacy download en_core_web_sm
 ```
 streamlit run dash_study_notes.py
 ```
-2) Upload an MP3 class recording through the app's interface.
+2) Upload an MP3 class recording through the app's interface. I recommend chunking class recordings into 15-20mn sections. If you are using Voice Notes on iPhone, many free tools will allow you to convert the file to an mp3 format online.
 3) Click the 'Transcribe' button to transcribe the audio.
 4) The app will display the transcription, a generated summary, and comprehension questions based on the summary.
 
