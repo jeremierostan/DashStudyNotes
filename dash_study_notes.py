@@ -1,11 +1,11 @@
 import streamlit as st
 from transformers import pipeline, AutoModelForSeq2SeqLM, AutoTokenizer
-import openai_whisper as whisper  # Updated import for OpenAI Whisper
+import whisper
 import tempfile
 import spacy
 
 # Initialize Whisper model for transcription
-model = whisper.load_model("base-en")  # Updated model loading for OpenAI Whisper
+model = whisper.load_model("tiny")  # Updated model loading for OpenAI Whisper
 
 # Initialize NLP pipeline for summarization
 summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
