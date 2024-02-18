@@ -13,8 +13,6 @@ def load_whisper_model():
 @st.cache(allow_output_mutation=True)
 def load_summarizer():
     # Loads the summarization pipeline
-    tokenizer = AutoTokenizer.from_pretrained("sshleifer/distilbart-cnn-12-6")
-    model = AutoModelForSeq2SeqLM.from_pretrained("sshleifer/distilbart-cnn-12-6")
     return pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 @st.cache(allow_output_mutation=True)
