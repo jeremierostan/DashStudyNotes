@@ -15,7 +15,7 @@ tokenizer_qg = AutoTokenizer.from_pretrained("mrm8488/t5-base-finetuned-question
 model_qg = AutoModelForSeq2SeqLM.from_pretrained("mrm8488/t5-base-finetuned-question-generation-ap")
 
 # Load Spacy model for NLP tasks (like extracting nouns for answers)
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load
 
 def transcribe_audio(audio_path):
     audio = whisper.load_audio(audio_path)
