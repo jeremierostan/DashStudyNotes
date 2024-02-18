@@ -10,7 +10,7 @@ def load_whisper_model():
 
 @st.cache(allow_output_mutation=True)
 def load_summarizer():
-    return pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+    return pipeline("summarization", model="facebook/bart-large-cnn ")
 
 @st.cache(allow_output_mutation=True)
 def load_question_generation_model():
@@ -25,7 +25,7 @@ def load_spacy_model():
 model = load_whisper_model()
 summarizer = load_summarizer()
 tokenizer_qg, model_qg = load_question_generation_model()
-nlp = load_spacy_model()  # Now correctly loads the Spacy model
+nlp = load_spacy_model()  
 
 def transcribe_audio(audio_path):
     audio = whisper.load_audio(audio_path)
@@ -50,8 +50,8 @@ def get_question(answer, context, max_length=64):
 def extract_answer(text):
     doc = nlp(text)
     for chunk in doc.noun_chunks:
-        return chunk.text  # Returns the first noun chunk as the answer
-    return ""  # Fallback if no noun chunks found
+        return chunk.text  
+    return ""  
 
 st.title('🐬Dash Study Notes📝')
 
@@ -70,15 +70,15 @@ if audio_file is not None:
         
         summary = generate_summary(transcription)
         st.subheader("Summary")
-        st.text(summary)  # Use st.text to maintain formatting
+        st.text(summary)  
 
         st.subheader("Comprehension Questions")
         bullet_points = summary.split('\n')
         questions = []
         for point in bullet_points:
             answer = extract_answer(point)
-            if answer:  # Ensure there's an answer to generate a question
+            if answer:  
                 question = get_question(answer, point)
                 questions.append(question)
-        st.text('\n'.join(questions))  # Display generated questions
+        st.text('\n'.join(questions))  
 
