@@ -6,8 +6,8 @@ import spacy
 
 # Apply caching to model loading functions
 @st.cache(allow_output_mutation=True)
-def load_whisper_model(model_name):
-    return whisper.load_model(model_name)
+def load_whisper_model(tiny):
+    return whisper.load_model(tiny)
 
 @st.cache(allow_output_mutation=True)
 def load_summarizer():
@@ -20,8 +20,8 @@ def load_question_generation_model():
     return tokenizer, model
 
 @st.cache(allow_output_mutation=True)
-def load_spacy_model(model_name='en_core_web_sm'):
-    return spacy.load(model_name)
+def load_spacy_model:
+    return spacy.load
 
 # Initialize models with caching
 model = load_whisper_model("tiny")
