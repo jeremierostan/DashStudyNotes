@@ -4,18 +4,30 @@ import whisper
 import tempfile
 import spacy
 
-# Initialize Whisper model for transcription
-model = whisper.load_model("tiny")  # Updated model loading for OpenAI Whisper
+# Apply caching to model loading functions
+@st.cache(allow_output_mutation=True)
+def load_whisper_model(model_name):
+    return whisper.load_model(model_name)
 
-# Initialize NLP pipeline for summarization
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+@st.cache(allow_output_mutation=True)
+def load_summarizer():
+    return pipeline("summarization", model="facebook/bart-large-cnn")
 
-# Load Question Generation model
-tokenizer_qg = AutoTokenizer.from_pretrained("mrm8488/t5-base-finetuned-question-generation-ap")
-model_qg = AutoModelForSeq2SeqLM.from_pretrained("mrm8488/t5-base-finetuned-question-generation-ap")
+@st.cache(allow_output_mutation=True)
+def load_question_generation_model():
+    tokenizer = AutoTokenizer.from_pretrained("mrm8488/t5-base-finetuned-question-generation-ap")
+    model = AutoModelForSeq2SeqLM.from_pretrained("mrm8488/t5-base-finetuned-question-generation-ap")
+    return tokenizer, model
 
-# Load Spacy model for NLP tasks (like extracting nouns for answers)
-nlp = spacy.load
+@st.cache(allow_output_mutation=True)
+def load_spacy_model(model_name='en_core_web_sm'):
+    return spacy.load(model_name)
+
+# Initialize models with caching
+model = load_whisper_model("tiny")
+summarizer = load_summarizer()
+tokenizer_qg, model_qg = load_question_generation_model()
+nlp = load_spacy_model()
 
 def transcribe_audio(audio_path):
     audio = whisper.load_audio(audio_path)
