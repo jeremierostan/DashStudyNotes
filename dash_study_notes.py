@@ -10,7 +10,7 @@ def load_whisper_model():
 
 @st.cache(allow_output_mutation=True)
 def load_summarizer():
-    return pipeline("summarization", model="facebook/bart-large-cnn ")
+    return pipeline("summarization", model="facebook/bart-large-cnn")
 
 @st.cache(allow_output_mutation=True)
 def load_question_generation_model():
