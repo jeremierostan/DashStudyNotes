@@ -1,5 +1,5 @@
 # 🐬Dash Study Notes📝
-*Transcribes, summarizes, and checks for understanding of class recordings*
+*Transcribes, summarizes, and checks for understanding of voice recordings (class recordings, Youtube audio file, etc.)*
 
 ## Introduction
 This app is a devemopment of the original [DashNotes](https://github.com/jeremierostan/DashNotes). In addition to transcribing and summarizing voice recordings, this version generates comprehension questions to aid and check for understanding.
