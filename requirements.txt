@@ -1,4 +1,6 @@
-streamlit==1.10.0 
-transformers==4.20.1 
-openai-whisper==20231117 
-spacy==3.2.1
+streamlit
+transformers 
+openai-whisper
+spacy
+pydantic
+sentencepiece
