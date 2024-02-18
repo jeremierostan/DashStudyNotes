@@ -22,7 +22,11 @@ To run the app:
 4) Open dash_study_notes.py
 5)Install the necessary Python packages:
 ```
-pip install streamlit==1.10.0 transformers==4.20.1 openai-whisper==20231117 spacy==3.2.1
+pip install streamlit transformers openai-whisper spacy pydantic sentencepiece
+```
+and
+```
+python -m spacy download en_core_web_sm
 ```
 
 ## Usage
